@@ -7,8 +7,8 @@ package stack;
 public class Evaluate {
 
     public static double calculate(String expression) {
-        Stack<String> ops = new FixedCapacityStack<>(100);
-        Stack<Double> vals = new FixedCapacityStack<>(100);
+        Stack<String> ops = new LinkedListStack<>();
+        Stack<Double> vals = new LinkedListStack<>();
 
         for (char c : expression.toCharArray()) {
             String s = String.valueOf(c);
