@@ -1,26 +1,29 @@
-package sort;
+package sorting;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author huangyb
  * @date 2020/6/4
  */
-public class Example {
+public abstract class AbstractSort {
 
-    public static void sort(Comparable[] a) {
+    public abstract void sort(Comparable[] a);
 
-    }
-
-    private static boolean less(Comparable p, Comparable n) {
+    public boolean less(Comparable p, Comparable n) {
         return p.compareTo(n) < 0;
     }
 
-    public static void exchange(Comparable[] a, int i, int j) {
+    public void exchange(Comparable[] a, int i, int j) {
         Comparable t = a[i];
         a[i] = a[j];
         a[j] = t;
     }
 
-    public static boolean isSorted(Comparable[] a) {
+    public boolean isSorted(Comparable[] a) {
         for (int i = 1; i < a.length; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
@@ -29,7 +32,7 @@ public class Example {
         return true;
     }
 
-    public static void show(Comparable[] a) {
+    public void show(Comparable[] a) {
         for (Comparable comparable : a) {
             System.out.print(comparable + " ");
         }
