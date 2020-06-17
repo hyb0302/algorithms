@@ -1,6 +1,11 @@
 package queue;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author huangyb
@@ -102,6 +107,11 @@ public class ResizingArrayQueue<Item> implements Queue<Item> {
                 return item;
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.stream(a).collect(Collectors.toList()).toString();
     }
 
     public static void main(String[] args) {
