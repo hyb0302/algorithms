@@ -21,22 +21,14 @@ public class IntervalIntersection {
             int a2 = a[i][1];
             int b1 = b[j][0];
             int b2 = b[j][1];
-
-            if (a1 > b2 || b1 > a2) {
-
+            // a2 < b1 || b2 < a1
+            if (a2 >= b1 && b2 >= a1) {
+                r.add(Arrays.asList(Math.max(a1, b1), Math.min(a2, b2)));
             }
-            if (a1 <= b2 && b1 <= a2) {
-
-            }
-
-            r.add(Arrays.asList(Math.max(a1, b1), Math.min(a2, b2)));
 
             if (a2 < b2) {
                 i++;
-            } else if (b2 < a2) {
-                j++;
             } else {
-                i++;
                 j++;
             }
 
@@ -45,5 +37,14 @@ public class IntervalIntersection {
         return r;
     }
 
+    public static void main(String[] args) {
+        int[][] a = {{0, 2}, {5, 10}, {13, 23}, {24, 25}};
+        int[][] b = {{1, 5}, {8, 12}, {15, 24}, {25, 26}};
+        List<List<Integer>> cal = cal(a, b);
+        for (List<Integer> list : cal) {
+            System.out.println(list.toString());
+        }
+
+    }
 
 }

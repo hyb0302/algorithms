@@ -19,4 +19,20 @@ public class Insertion extends AbstractSort {
             }
         }
     }
+
+    // 1 3 6 4 2 3
+    public void sort2(Comparable[] a) {
+        for (int i = 1; i < a.length; i++) {
+            Comparable value = a[i];
+            int j = i - 1;
+            for (; j >= 0; j--) {
+                if (less(value, a[j])) {
+                    a[j + 1] = a[j];
+                } else {
+                    break;
+                }
+            }
+            a[j + 1] = value;
+        }
+    }
 }
