@@ -3,6 +3,7 @@ package stringmatching;
 /**
  * @author huangyb
  * @date 2020/12/6
+ * brute force 暴力匹配
  */
 public class BF implements StringMatching {
 
@@ -13,28 +14,24 @@ public class BF implements StringMatching {
         if (mainChars.length < patternChars.length) {
             return false;
         }
-        boolean f = false;
-        for (int i = 0; i < mainChars.length - patternChars.length + 1; i++) {
-            for (int j = 0; j < patternChars.length; j++) {
 
+        for (int i = 0; i < mainChars.length - patternChars.length + 1; i++) {
+            boolean f = true;
+            for (int j = 0; j < patternChars.length; j++) {
+                if (mainChars[i + j] != patternChars[j]) {
+                    f = false;
+                    break;
+                }
+            }
+            if (f) {
+                return true;
             }
         }
-
-
         return false;
     }
 
-    private boolean eq(char[] c1, char[] c2) {
-        if (c1.length != c2.length) {
-            return false;
-        }
-        for (int i = 0; i < c1.length; i++) {
-            if (c1[i] != c2[i]) {
-                return false;
-            }
-        }
-        return true;
+    public static void main(String[] args) {
+        Test.test(new BF());
+
     }
-
-
 }
